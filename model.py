@@ -1,6 +1,7 @@
 """Models for movie ratings app."""
 
 from flask_sqlalchemy import SQLAlchemy
+from crud import *
 
 db = SQLAlchemy()
 
@@ -70,6 +71,12 @@ def connect_to_db(flask_app, db_uri='postgresql:///ratings', echo=True):
     db.init_app(flask_app)
 
     print('Connected to the db!')
+
+# def create_user(email, password):
+#     new_user = User(email=email, password=password)
+#     db.session.add(new_user)
+#     db.session.commit()
+#     return User.query.filter(User.email==email).first()
 
 
 if __name__ == '__main__':
