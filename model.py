@@ -43,7 +43,7 @@ class Movie(db.Model):
         return f'<Movie movie_id={self.movie_id} title={self.title}>'
 
 
-class Ratings(db.Model):
+class Rating(db.Model):
     """A rating."""
 
     __tablename__ = "ratings"
