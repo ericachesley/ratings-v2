@@ -1,4 +1,4 @@
-from model import *
+from model import db, User, Movie, Rating, connect_to_db
 
 def create_user(email, password):
     new_user = User(email=email, password=password)
@@ -23,6 +23,13 @@ def create_rating(user, movie, score):
     db.session.commit()
     return new_rating
 
+
+def get_movies():
+    return Movie.query.all()
+
+
+def get_movie_by_id(movie_id):
+    return Movie.query.get(movie_id)
 
 
 if __name__ == '__main__':
