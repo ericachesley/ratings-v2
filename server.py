@@ -69,6 +69,18 @@ def process_login():
     return redirect('/')
 
 
+@app.route('/add_rating', methods=['POST'])
+def add_rating():
+    score = int(request.form.get('score'))
+    movie_title = request.form.get('movie')
+    email = session['logged_in_customer_email']
+    user = crud.get_user_by_email(email)
+    movie = crud.get_movie_by_title(movie_title)
+    crud.create_rating(user, movie, score)
+    flash('Rating added')
+    return redirect(f'/movies/{movie.movie_id}')
+
+
 if __name__ == '__main__':
     connect_to_db(app)
     app.run(host='0.0.0.0', debug=True)
