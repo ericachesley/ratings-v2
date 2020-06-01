@@ -11,19 +11,27 @@
     {% block head %}{% endblock %}
   </head>
   <body>
+
     <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navigation</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" href="/">Home</a>
-      <a class="nav-item nav-link" href="/movies">View all movies</a>
-      <a class="nav-item nav-link" href="/users">View all users</a>
-    </div>
-  </div>
-</nav>
+      <a class="navbar-brand" href="#">Navigation</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/">Home</a>
+          <a class="nav-item nav-link" href="/movies">View all movies</a>
+          <a class="nav-item nav-link" href="/users">View all users</a>
+        </div>
+      </div>
+    </nav>
+
+    {% for msg in get_flashed_messages() %}
+      <p class="flash-msg">
+        {{ msg }}
+      </p>
+    {% endfor %}
+
     {% block body %}{% endblock %}
 
     {% block after_body %}{% endblock %}
